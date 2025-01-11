@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Yuji+Mai&display=swap');
+
+body{
+    height: 100%;
+    background-image: linear-gradient(to left top, #051937, #214e62, #5e8587, #a8bdb2, #f4f7ec);
+    font-family: "PT Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.hero{
+    background-color: white;
+    width: 40%;
+    padding: 50px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    margin-top: 50px;
+}
+
+input{
+    padding: 10px 10px;
+    border-radius: 5px;
+    border: 1px solid #5e8587;
+    width: 90%;
+    margin-bottom: 10px;
+    outline: none;
+}
+input:focus{
+    outline: 1px solid #214e62;
+}
+
+label{
+    font-size: 20px;
+    color: #214e62;
+}
+
+input::placeholder{
+    color: #5e8587;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+.hero h1{
+    font-size: 40px;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    color: #214e62;
+    font-weight: bolder
+       
+}
+.link{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.hero button{
+    border: none;
+    padding: 8px 25px 8px 25px;
+    align-self: center;
+    border-radius: 5px;
+    background-color: #214e62;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.link a{
+    color: #214e62;
+    font-size: 18px;
+}
+
+.link a:hover{
+    font-size: 20px;
+}
+.link a:focus{
+    font-size: 16px;
+}
+.link p{
+    color: #214e62;
+}
+.hero button:hover{
+    background-color: #051937;
+}
+
+@media (max-width : 600px){
+    .hero{
+        width: 95%;
+        margin-top: 20px;
+        padding: 10px;
+    }
+    
+    input{
+        width: 100%;
+    }
+    .hero button{
+        padding:5px 14px 5px 14px;
+    }
+}
