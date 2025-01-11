@@ -52,7 +52,9 @@ ul li a:hover{
 ul li a:focus{
     color: #5e8587;
 }
-
+.btns{
+    background-color: #5e8587;
+}
 h4{
     color: #051937;
     text-shadow: 3px 1px #5e8587;
@@ -65,6 +67,23 @@ h4{
     margin-top: 20px;
 }
 
+.hero input{
+    width: 100%;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+.hero textarea{
+    width: 100%;
+    border: 1px solid #a8bdb2;
+    height: 200px;
+}
+
+.hero textarea:focus{
+    border: 1px solid  #214e62;
+}
 
 .hero button{
     border: none; 

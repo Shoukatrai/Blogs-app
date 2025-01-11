@@ -37,11 +37,10 @@
     </header>
 
 <div class="hero container">
-
   <div class="input-container">
     <label for="f-name">First Name:</label>
-    <input type="text" placeholder="First Name" disabled>
-    <button>
+    <input type="text" placeholder="First Name" disabled id="firstName"> 
+    <button onclick="editDetail(this)">
       <ion-icon name="pencil-outline"></ion-icon>
     </button>
   </div>
@@ -50,8 +49,8 @@
 
   <div class="input-container">
     <label for="l-name">Last Name:</label>
-    <input type="text" placeholder="Last Name" disabled>
-    <button>
+    <input type="text" placeholder="Last Name" disabled id="lastName">
+    <button onclick="editDetail(this)">
       <ion-icon name="pencil-outline"></ion-icon>
     </button>
   </div>
@@ -60,8 +59,8 @@
   
   <div class="input-container">
     <label for="number">Phone Number:</label>
-    <input type="tel" placeholder="Phone Number" disabled>
-    <button>
+    <input type="tel" placeholder="Phone Number" disabled id="phoneNumber">
+    <button onclick="editDetail(this)">
       <ion-icon name="pencil-outline"></ion-icon>
     </button>
   </div>
@@ -71,26 +70,20 @@
   
   <div class="input-container">
     <label for="email">Email:</label>
-    <input type="email" placeholder="Email" disabled>
-    <button>
+    <input type="email" placeholder="Email" disabled id="email">
+    <button onclick="editDetail(this)">
       <ion-icon name="pencil-outline"></ion-icon>
     </button>
   </div>
   
   
-  <div class="input-container">
-    <label for="email">Date of Birth:</label>
-    <input type="date" placeholder="Date of Birth" disabled>
-    <button>
-      <ion-icon name="pencil-outline"></ion-icon>
-    </button>
-  </div>
-  
+
+<!-- <button class="saveBtn" onclick="saveValue(this)">Save</button> -->
 </div>
 
 </body>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-<script type="module" src="#"></script>
+<script type="module" src="profile.js"></script>
 </html>
