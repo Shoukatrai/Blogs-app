@@ -8,5 +8,11 @@ const showSideMenu = ()=>{
 }
 
 
+const hideSideMenu = ()=>{
+    console.log(dropbtn)
+    console.log(dropdownContent)
+    dropdownContent.style.display = "none"
+}
 
 window.showSideMenu = showSideMenu 
+window.hideSideMenu= hideSideMenu 

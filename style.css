@@ -1,34 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Yuji+Mai&display=swap');
 
 body{
-    height: 100vh;
-    background-image: linear-gradient(to left top, #051937, #214e62, #5e8587, #a8bdb2, #f4f7ec);
+    height: 100%;
     font-family: "PT Serif", serif;
     font-weight: 400;
     font-style: normal;
 }
-nav button{
-    border: none;
-    font-size: 18px;
-    background-color: #051937;
-    color: white;
-    padding-left: 15px;
-    padding-right: 15px;
-    border-radius: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
 
-nav button:hover{
-    background-color: #051937b5;
-}
-.hero{
-    margin-top: 100px;
+.hero {
+    background-image: linear-gradient(to left top, #051937, #214e62, #5e8587, #a8bdb2, #f4f7ec);
+    padding: 100px;
     display: flex;
-    text-align: center;
     flex-direction: column;
+    text-align: center;
+    margin-top: 100px;
+    border-radius: 10px;
 }
-
 .hero h1{
     font-size: 62px;
     font-weight: bold;
@@ -37,19 +24,38 @@ nav button:hover{
 .hero button{
     font-size: 20px;
     border: none;
-    width: 10%;
     align-self: center;
-    padding: 5px;
+    padding: 5px 15px 5px 15px;
     border-radius: 5px;
+    margin-top: 20px;
 }
 
+.hero button a{
+    text-decoration: none;
+    color: #051937;
+}
+
+.hero button a:hover{
+    text-decoration: none;
+    color: whitesmoke;
+}
 .hero button:hover{
-    background-color: #051937;
+    background-color: hsl(216, 83%, 12%);
     color: white;
 }
 
 @media (max-width : 600px){
+    .hero{
+        margin: 0;
+    }
     .hero button{
         width: 50%;
+    }
+    .hero h1{
+        font-size: 40px;
+    }
+
+    .hero p{
+        font-size: 14px;
     }
 }
