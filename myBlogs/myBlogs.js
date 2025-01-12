@@ -59,7 +59,16 @@ const showBlogsHandler = async()=>{
     }
 }
 
+const logOut = ()=>{
+    let uid = localStorage.getItem("uid")
+    uid = ""
+    localStorage.setItem("uid" , uid)
+    alert("Log out Successful");
+    window.location.href = "../login/login.html"
+}
 
+ 
+window.logOut = showSideMenu 
 window.showSideMenu = showSideMenu 
 window.showBlogsHandler = showBlogsHandler 
 window.authCheck = authCheck
