@@ -1,12 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Yuji+Mai&display=swap');
 
 body{
-    height: 100%;
+    height: 100vh;
     background-image: linear-gradient(to left top, #051937, #214e62, #5e8587, #a8bdb2, #f4f7ec);
     font-family: "PT Serif", serif;
     font-weight: 400;
     font-style: normal;
 }
+h4{
+    color: #051937;
+    text-shadow: 3px 1px #5e8587;
+}
+
 nav button{
     border: none;
     font-size: 18px;

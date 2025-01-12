@@ -124,6 +124,10 @@ input::placeholder{
     border-radius: 4px;
     display: none;
 }
+h4{
+    color: #051937;
+    text-shadow: 3px 1px #5e8587;
+}
 
 
   @media (max-width: 992px) {
