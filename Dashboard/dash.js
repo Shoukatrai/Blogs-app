@@ -106,6 +106,14 @@ const showSideMenu = ()=>{
 }
 
 
+const logOut = ()=>{
+    let uid = localStorage.getItem("uid")
+    uid = ""
+    localStorage.setItem("uid" , uid)
+    window.location.replace("../login/login.html")
+}
+
+window.logOut = logOut
 window.showSideMenu = showSideMenu 
 window.showBlogs   = showBlogs  
 window.blogsHandler  = blogsHandler 

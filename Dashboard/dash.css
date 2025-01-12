@@ -22,6 +22,12 @@ nav button{
 nav button:hover{
     background-color: #051937b5;
 }
+
+nav button:focus{
+    background-color: whitesmoke;
+    color: #051937;
+}
+
 .navLink{
     display: flex;
     flex-direction: row;
