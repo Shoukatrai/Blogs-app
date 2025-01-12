@@ -14,6 +14,8 @@ const authCheck = ()=>{
     }
 }
 
+
+
 const showBlogs =async ()=>{
     try {
         Blogs.innerHTML = "";
@@ -24,51 +26,31 @@ const showBlogs =async ()=>{
             if(doc.data().isPrivate){
                 if(doc.data().uid ===uid){
                     const UI = `<div class="blog-container">
-                        <div class="head">
-                        <h3>${doc.data().title}</h3>
-                        <div class="dropdown">
-                        <button class="dropbtn" onclick="showSideMenu()">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </button>
-                    <div class="dropdown-content">
-                      <button>Edit</button>
-                      <button>Delete</button>
-                    </div>
-                  </div>
-                </div>
-                <span>${doc.data().isPrivate} </span>
-            <div class="content">
+        <div class="head">
+            <h3> ${doc.data().title} </h3>
+        <div class="content">
             ${doc.data().text}
-            </div>
-       </div> 
-    `
+        </div>
+        <div class="footer">
+          <button>edit</button>
+          <button>delete</button>
+        </div>
+   </div>  `
     
     Blogs.innerHTML +=UI
                 }
             }else{
                 const UI = `<div class="blog-container">
-                        <div class="head">
-                        <h3>${doc.data().title}</h3>
-                        <div class="dropdown">
-                        <button class="dropbtn">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </button>
-                    <div class="dropdown-content">
-                      <button>Edit</button>
-                      <button>Delete</button>
-                    </div>
-                  </div>
-                </div>
-                <span>${doc.data().isPrivate} </span>
-            <div class="content">
+        <div class="head">
+            <h3> ${doc.data().title} </h3>
+        <div class="content">
             ${doc.data().text}
-            </div>
-       </div> 
-    `
+        </div>
+        <div class="footer">
+          <button>edit</button>
+          <button>delete</button>
+        </div>
+   </div> `
     
     Blogs.innerHTML +=UI
             }

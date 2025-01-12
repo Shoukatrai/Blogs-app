@@ -48,6 +48,7 @@ ul{
     margin-top: 10px;
     margin-left: 250px;
 }
+
 ul li a{
     text-align: center;
     text-decoration: none;
@@ -97,30 +98,34 @@ h4{
     margin-top: 20px;
     background-color:  #f4f7ec;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .head{
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
 }
 .blog-container .head h3{
     margin-bottom: 10px;
     font-size: 25px;
     color: #051937;
 }
-.dropbtn div{
-    width: 5px;
-    height: 5px;
-    background-color: #05193766;
-    margin: 3px;
-    border-radius: 50%;
-    cursor: pointer;
-}
 
-.dropbtn{
+
+.footer button{
     border: none;
     background-color: transparent;
-    cursor: pointer;
 }
+
+
+.footer button:focus{
+    border: 0.1px solid #051937;
+    background-color: whitesmoke;
+    border-radius: 4px;
+}
+
 .dropdown {
     position: relative;
     display: inline-block;
