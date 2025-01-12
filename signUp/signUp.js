@@ -7,7 +7,12 @@ const firstName = document.querySelector("#firstName")
 const lastName= document.querySelector("#lastName")
 const phoneNumber = document.querySelector("#phoneNumber")
 
-
+const authCheck = ()=>{
+    const uid = localStorage.getItem("uid")
+    if(uid){
+        window.location.href = "../Dashboard/dash.html"
+    }
+}
 
 const signUpHandler = async ()=>{
     try {
@@ -18,11 +23,13 @@ const signUpHandler = async ()=>{
             firstName: firstName.value,
             lastName: lastName.value,
             phoneNumber: phoneNumber.value,
+            email: email.value
         })
-        window.location.href = "../login/login.html"
+        window.location.replace("../login/login.html") 
     } catch (error) {
         alert(error.code)
     }
 }
 
+window.authCheck = authCheck 
 window.signUpHandler = signUpHandler 

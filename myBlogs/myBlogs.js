@@ -1,3 +1,6 @@
+import { app, collection, db, doc, getDocs, query, where } from "../firebase.js";
+
+
 const dropbtn = document.querySelector(".dropbtn");
 const dropdownContent= document.querySelector(".dropdown-content");
 
@@ -7,12 +10,26 @@ const showSideMenu = ()=>{
     dropdownContent.style.display = "block"
 }
 
-
-const hideSideMenu = ()=>{
-    console.log(dropbtn)
-    console.log(dropdownContent)
-    dropdownContent.style.display = "none"
+const authCheck = ()=>{
+    const uid = localStorage.getItem("uid")
+    if(!uid){
+        window.location.href = "../login/login.html"
+    }
 }
 
+
+
+// const showBlogsHandler = async()=>{
+//     try {
+//         const userData = await 
+//     } catch (error) {
+//         console.log(error)
+//         alert(error.code)
+//     }
+// }
+
+
 window.showSideMenu = showSideMenu 
-window.hideSideMenu= hideSideMenu 
+// window.showBlogsHandler= showBlogsHandler 
+
+window.authCheck = authCheck
