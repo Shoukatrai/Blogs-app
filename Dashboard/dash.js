@@ -52,7 +52,7 @@ const showBlogs =async ()=>{
                         <div class="head">
                         <h3>${doc.data().title}</h3>
                         <div class="dropdown">
-                        <button class="dropbtn" onclick="showSideMenu()">
+                        <button class="dropbtn">
                             <div></div>
                             <div></div>
                             <div></div>
@@ -96,14 +96,10 @@ const blogsHandler =async ()=>{
         alert(error.code)
     }
 }
-const dropbtn = document.querySelector(".dropbtn");
-const dropdownContent= document.querySelector(".dropdown-content");
 
-const showSideMenu = ()=>{
-    console.log(dropbtn)
-    console.log(dropdownContent)
-    dropdownContent.style.display = "block"
-}
+
+
+
 
 
 const logOut = ()=>{
@@ -114,7 +110,7 @@ const logOut = ()=>{
 }
 
 window.logOut = logOut
-window.showSideMenu = showSideMenu 
+
 window.showBlogs   = showBlogs  
 window.blogsHandler  = blogsHandler 
 window.authCheck = authCheck

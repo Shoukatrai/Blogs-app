@@ -1,16 +1,10 @@
 import { app, collection, db, doc, getDocs, query, where } from "../firebase.js";
 
 //getting elements
-const dropbtn = document.querySelector(".dropbtn");
-const dropdownContent= document.querySelector(".dropdown-content");
 const Blogs  = document.querySelector(".Blogs");
 
 
-const showSideMenu = ()=>{
-    console.log(dropbtn)
-    console.log(dropdownContent)
-    dropdownContent.style.display = "block"
-}
+
 
 const authCheck = ()=>{
     const uid = localStorage.getItem("uid")
@@ -35,7 +29,7 @@ const showBlogsHandler = async()=>{
             <div class="head">
                 <h3> ${doc.data().title} </h3>
                 <div class="dropdown">
-                    <button class="dropbtn" onclick="showSideMenu()">
+                    <button class="dropbtn">
                         <div></div>
                         <div></div>
                         <div></div>
@@ -68,7 +62,6 @@ const logOut = ()=>{
 }
 
  
-window.logOut = showSideMenu 
-window.showSideMenu = showSideMenu 
+window.logOut = logOut
 window.showBlogsHandler = showBlogsHandler 
 window.authCheck = authCheck
