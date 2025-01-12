@@ -71,9 +71,9 @@ input::placeholder{
     background-color: #214e62;
 }
 .hero button:focus{
-     background-color: whitesmoke;
-     border: 1px solid #051937;
-     color: #051937;
+    
+    border: 1px solid #051937;
+    
 }
 
 .link a{
