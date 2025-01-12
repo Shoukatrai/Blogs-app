@@ -1,4 +1,4 @@
-import { app, auth ,collection,db , doc ,getDocs, setDoc } from "../firebase.js";
+import { app, auth ,collection,db , doc ,getDocs, setDoc , addDoc } from "../firebase.js";
 
 //getting elements
 const tilteInput = document.querySelector("#tilteInput")
@@ -13,26 +13,6 @@ const authCheck = ()=>{
         window.location.href = "../login/login.html"
     }
 }
-
-
-
-const blogsHandler =async ()=>{
-    try {
-        const uid = localStorage.getItem("uid")
-        console.log(uid)
-        await setDoc(doc(db , "blogs" ,uid),{
-            title: tilteInput.value,
-            text: BlogText.value,
-            isPrivate: checkbox.checked,
-            uid:uid
-        })   
-        console.log("successful")
-    } catch (error) {
-        alert(error.code)
-    }
-    showBlogs()
-}
-
 
 const showBlogs =async ()=>{
     try {
@@ -99,7 +79,23 @@ const showBlogs =async ()=>{
     } 
 }
 
-
+const blogsHandler =async ()=>{
+    try {
+        const uid = localStorage.getItem("uid")
+        console.log(uid)
+        await addDoc(collection(db, "blogs"),{
+            title: tilteInput.value,
+            text: BlogText.value,
+            isPrivate: checkbox.checked,
+            uid:uid
+        })
+        alert("blog created successfully!")
+        showBlogs()
+    } catch (error) {
+        console.log(error)
+        alert(error.code)
+    }
+}
 const dropbtn = document.querySelector(".dropbtn");
 const dropdownContent= document.querySelector(".dropdown-content");
 
@@ -111,7 +107,6 @@ const showSideMenu = ()=>{
 
 
 window.showSideMenu = showSideMenu 
-window.blogsHandler  = blogsHandler 
 window.showBlogs   = showBlogs  
+window.blogsHandler  = blogsHandler 
 window.authCheck = authCheck
- 
