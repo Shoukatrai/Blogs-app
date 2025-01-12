@@ -16,6 +16,7 @@ const authCheck = ()=>{
 
 const signUpHandler = async ()=>{
     try {
+        alert("Wait!")
         const user = await createUserWithEmailAndPassword(auth , email.value , password.value)
         const uid = user.user.uid
         console.log(uid) 
@@ -25,6 +26,7 @@ const signUpHandler = async ()=>{
             phoneNumber: phoneNumber.value,
             email: email.value
         })
+        alert("Signup Successful")
         window.location.replace("../login/login.html") 
     } catch (error) {
         alert(error.code)

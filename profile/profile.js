@@ -32,20 +32,20 @@ const editDetail =async (element)=>{
     const editPrompt = prompt("Enter edit Value")
     console.log(editPrompt)
     element.parentNode.children[1].placeholder = editPrompt 
-    // console.log(plchlder)
-    // plchlder = editPrompt 
+    
     try {
-        const userDetail = await setDoc(doc(db , "users" , uid),{
+        let userDetail = await setDoc(doc(db , "users" , uid),{
             firstName: firstName.placeholder,
             lastName:lastName.placeholder,
             phoneNumber:phoneNumber.placeholder,
             email:email.placeholder
         })
-        userDetail = await getDoc(doc(db , "users" , uid))
-        console.log(userDetail.data())
-            
+        userDetail = await getDoc(doc(db , "users" , uid))           
+        showDetail()
+        alert("Updated successfully!")
+        console.log(userDetail)
     } catch (error) {
-        alert(error.code)
+        alert(error.message)
     }
 
 }

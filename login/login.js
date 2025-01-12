@@ -14,10 +14,12 @@ const authCheck = ()=>{
 
 const loginHandler =async ()=>{
     try {
+        alert("wait!")
         const user =  await signInWithEmailAndPassword(auth , email.value , password.value)
         const uid = user.user.uid
         console.log(uid)
         localStorage.setItem("uid" , uid)
+        alert("Login Successful!")
         window.location.href = "../Dashboard/dash.html"
     } catch (error) {
         alert(error.code)
