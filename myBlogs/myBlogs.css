@@ -114,7 +114,21 @@ h4{
 .head{
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
 }
+
+.footer button{
+    border: none;
+    background-color: transparent;
+}
+
+
+.footer button:focus{
+    border: 0.1px solid #051937;
+    background-color: whitesmoke;
+    border-radius: 4px;
+}
+
 .blog-container .head h3{
     margin-bottom: 10px;
     font-size: 25px;
