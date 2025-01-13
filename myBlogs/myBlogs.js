@@ -26,25 +26,16 @@ const showBlogsHandler = async()=>{
         snapsot.forEach((doc)=>{
             console.log(doc.data())
             const UI = `<div class="blog-container">
-            <div class="head">
-                <h3> ${doc.data().title} </h3>
-                <div class="dropdown">
-                    <button class="dropbtn">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </button>
-                    <div class="dropdown-content">
-                      <button>Edit</button>
-                      <button>Delete</button>
-                    </div>
-                  </div>
-                </div>
-
-            <div class="content">
-                ${doc.data().text}
-            </div>
-       </div> `
+        <div class="head">
+            <h3> ${doc.data().title} </h3>
+        <div class="content">
+            ${doc.data().text}
+        </div>
+        <div class="footer">
+          <button>edit</button>
+          <button>delete</button>
+        </div>
+   </div>  `
        Blogs.innerHTML += UI;
         })
     } catch (error) {
