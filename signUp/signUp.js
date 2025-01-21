@@ -1,37 +1,47 @@
-import { app, auth, createUserWithEmailAndPassword, db, doc, setDoc } from "../firebase.js";
+import { auth, createUserWithEmailAndPassword, db, doc, setDoc } from "../firebase.js"
 
-//getting elemenst
-const email = document.querySelector("#email")
-const password = document.querySelector("#password")
-const firstName = document.querySelector("#firstName")
-const lastName= document.querySelector("#lastName")
-const phoneNumber = document.querySelector("#phoneNumber")
 
-const authCheck = ()=>{
-    const uid = localStorage.getItem("uid")
-    if(uid){
-        window.location.href = "../Dashboard/dash.html"
-    }
-}
 
-const signUpHandler = async ()=>{
+
+const signUpHandler = async () => {
     try {
-        alert("Wait!")
-        const user = await createUserWithEmailAndPassword(auth , email.value , password.value)
-        const uid = user.user.uid
-        console.log(uid) 
-        const data = await setDoc(doc(db , "users" ,uid),{
-            firstName: firstName.value,
-            lastName: lastName.value,
-            phoneNumber: phoneNumber.value,
-            email: email.value
-        })
-        alert("Signup Successful")
-        window.location.replace("../login/login.html") 
+        const email = document.querySelector("#email").value;
+        const pasword = document.querySelector("#pasword").value;
+        const firstName = document.querySelector("#firstName").value;
+        const lastName = document.querySelector("#lastName").value;
+        const phoneNumber = document.querySelector("#phoneNumber").value;
+        console.log(email)
+        
+        if(!firstName ||!lastName || !PaymentAddress || !email || !pasword){
+            alert("Fill the required fields!")
+            return
+        }
+
+        const newUser = await createUserWithEmailAndPassword(auth , email , pasword)
+        console.log(newUser)
+        const uid = newUser.user.uid
+        console.log(uid)
+        localStorage.setItem("uid" , uid)
+        const userData ={
+            firstName,
+            lastName,
+            phoneNumber,
+            email,
+            pasword,
+            uid  
+        }
+        console.log(userData)
+        await setDoc(doc(db , "users" , uid) , userData)
+         
+        console.log(newUser)
+        alert("Account created successfully!")
+        
+        
+        window.location.assign("../login/login.html")
     } catch (error) {
-        alert(error.code)
+        console.log(error)
     }
+
 }
 
-window.authCheck = authCheck 
 window.signUpHandler = signUpHandler 

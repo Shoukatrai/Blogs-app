@@ -1,120 +1,89 @@
-import { app, auth, collection, db, doc, getDocs, setDoc, addDoc, deleteDoc } from "../firebase.js";
-
-//getting elements
-const tilteInput = document.querySelector("#tilteInput")
-const BlogText = document.querySelector("#BlogText")
-const checkbox = document.querySelector("#checkbox")
-const Blogs = document.querySelector(".Blogs")
+import { addDoc, app, collection, db, doc, getDoc, getDocs } from "../firebase.js";
 
 
-const authCheck = () => {
-    const userId = localStorage.getItem("uid")
-    if (!userId) {
-        window.location.href = "../login/login.html"
+const postBlog = async () => {
+    try {
+
+        const inputText = document.querySelector("#inputText").value
+        const blogText = document.querySelector("#text").value
+        const isPrivate = document.querySelector("#isPrivate").checked
+        const user = localStorage.getItem("user")
+        const userObj = JSON.parse(user)
+        const uid = userObj.uid
+        const userBlog = await addDoc(collection(db, "blogs"), {
+            inputText,
+            blogText,
+            isPrivate,
+            uid
+        })
+        alert("Blog posted Successfully!")
+        showBlogs()
+    } catch (error) {
+        console.log(error)
     }
 }
-
 
 
 const showBlogs = async () => {
     try {
-        Blogs.innerHTML = "";
-        const uid = localStorage.getItem("uid");
-        const snapsot = await getDocs(collection(db, "blogs"))
-        snapsot.forEach((doc) => {
-            console.log(doc.data().isPrivate)
-            if (doc.data().isPrivate) {
-                if (doc.data().uid === uid) {
-                    const UI = `<div class="blog-container">
+        const BlogsContainer = document.querySelector(".Blogs-container")
+        BlogsContainer.innerHTML = "";
+
+        const user = localStorage.getItem("user")
+        const userObj = JSON.parse(user)
+        const uid = userObj.uid
+
+        console.log(BlogsContainer)
+        const blogs = await getDocs(collection(db, "blogs"));
+        console.log(blogs)
+        blogs.forEach((blog) => {
+            let isPrivate = blog.data().isPrivate;
+            if (isPrivate) {
+                if (blog.data().uid === uid) {
+                    const renderUi = ` <div class="blog-container">
         <div class="head">
-            <h3> ${doc.data().title} </h3>
+            <h3>${blog.data().inputText}</h3>
+        </div>
         <div class="content">
-            ${doc.data().text}
-            
+            ${blog.data().blogText}
+            ${blog.data().uid}
+            ${blog.data().isPrivate}
         </div>
         <div class="footer">
-          <button onclick = "editBlog()">edit</button>
-          <button onclick = "deleteBlog()">delete</button>
+          <button>edit</button>
+          <button>delete</button>
         </div>
-   </div>  `
-
-                    Blogs.innerHTML += UI
-
+      </div> `
+                    BlogsContainer.innerHTML += renderUi;
                 }
-            } else {
-                const UI = `<div class="blog-container">
-        <div class="head">
-            <h3> ${doc.data().title} </h3>
-        <div class="content">
-            ${doc.data().text}
-            
-        </div>
-        <div class="footer">
-          <button id = "editBtn" onclick = "editBlog()">edit</button>
-          <button id = "deletBtn"  onclick = "deleteBlog()">delete</button>
-        </div>
-   </div> `
-
-                Blogs.innerHTML += UI
-                const editBtn = document.getElementById("editBtn")
-                const deletBtn = document.getElementById("deletBtn")
-
-                editBtn.style.pointerEvents = "none"
-                deletBtn.style.pointerEvents = "none"
-                console.log(editBtn)
-                console.log(deletBtn)
-            }
-
+            }else{
+                const renderUi = ` <div class="blog-container">
+                <div class="head">
+                    <h3>${blog.data().inputText}</h3>
+                </div>
+                <div class="content">
+                    ${blog.data().blogText}
+                    ${blog.data().uid}
+                    ${blog.data().isPrivate}
+                </div>
+                <div class="footer">
+                  <button>edit</button>
+                  <button>delete</button>
+                </div>
+              </div> `
+                    BlogsContainer.innerHTML += renderUi;
+            }        
         })
-    } catch (error) {
-        alert(error.code)
-    }
-}
 
-const blogsHandler = async () => {
-    try {
-        const uid = localStorage.getItem("uid")
-        console.log(uid)
-        await addDoc(collection(db, "blogs"), {
-            title: tilteInput.value,
-            text: BlogText.value,
-            isPrivate: checkbox.checked,
-            uid: uid
-        })
-        alert("blog created successfully!")
-        showBlogs()
     } catch (error) {
         console.log(error)
-        alert(error.code)
     }
 }
 
 
-const deleteBlog = async () => {
-    const uid = localStorage.getItem("uid")
-    await deleteDoc()
-    console.log(uid)
-    console.log("delete")
-}
 
 
-const editBlog = () => {
-    const uid = localStorage.getItem("uid")
-    console.log(uid)
-    console.log('edit')
-}
 
-const logOut = () => {
-    let uid = localStorage.getItem("uid")
-    uid = ""
-    localStorage.setItem("uid", uid)
-    window.location.replace("../login/login.html")
-}
-
-window.logOut = logOut
 
 window.showBlogs = showBlogs
-window.blogsHandler = blogsHandler
-window.authCheck = authCheck
-window.editBlog = editBlog
-window.deleteBlog = deleteBlog
+window.postBlog = postBlog 

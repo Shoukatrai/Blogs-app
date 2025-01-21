@@ -1,30 +1,25 @@
-import { app, auth, signInWithEmailAndPassword } from "../firebase.js";
+import { auth, db, doc, getDoc, signInWithEmailAndPassword } from "../firebase.js"
 
-//getting elements
-const email = document.querySelector("#email")
-const password= document.querySelector("#password")
+const loginHandler = async () => {
+    try {
+        const email = document.querySelector("#email").value;
+        const password = document.querySelector("#password").value;
 
+        const userAuth = await signInWithEmailAndPassword(auth, email, password)
+        const uid = userAuth.user.uid
+        console.log(uid)
 
-const authCheck = ()=>{
-    const uid = localStorage.getItem("uid")
-    if(uid){
-        window.location.href = "../Dashboard/dash.html"
+        const docRef = doc(db, "users", uid)
+        const snap = await getDoc(docRef)
+        const userData = snap.data()
+
+        localStorage.setItem("user", JSON.stringify(userData))
+        alert("Login Successful")
+        window.location.replace("../Dashboard/dash.html")
+    } catch (error) {
+        console.log(error)
     }
 }
 
-const loginHandler =async ()=>{
-    try {
-        alert("wait!")
-        const user =  await signInWithEmailAndPassword(auth , email.value , password.value)
-        const uid = user.user.uid
-        console.log(uid)
-        localStorage.setItem("uid" , uid)
-        alert("Login Successful!")
-        window.location.href = "../Dashboard/dash.html"
-    } catch (error) {
-        alert(error.code)
-    }
-} 
 
-window.authCheck = authCheck 
 window.loginHandler = loginHandler

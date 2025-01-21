@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="dash.css">
 </head>
 
-<body onload="showBlogs() ; authCheck()">
+<body onload="showBlogs()">
 
   <header>
     <nav class="navbar navbar-expand-lg ">
@@ -43,47 +43,40 @@
   </header>
 
   <div class="hero container">
-    <h3>Blogs</h3>
     <div>
-      <!-- Button trigger modal -->
-      <button type="button" class="btn btns" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        New Blog
-      </button>
+      <h3>Blogs</h3>
+    </div>
+    <div>
+        <!-- Button trigger modal -->
+        <button type="button" class="btnA" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          New Blog
+        </button>
 
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">
-                <input type="text" placeholder="Title" id="tilteInput">
-              </h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <textarea name="" id="BlogText">Text here...</textarea>
-            </div>
-
-
-
-            <div class="modal-footer">
-              <div>
-                <input type="checkbox" name="" id="checkbox">Private
+        <!-- Modal -->
+        <div cla class="modal fade modelA" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">
+                  <input type="text" name="" id="inputText" placeholder="Title" class="title-input">
+                </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" onclick="blogsHandler()">Post</button>
+              <div class="modal-body">
+                <textarea name="text" id="text">Blog here...</textarea>
+                <label for="">Private</label>
+                <input type="checkbox" name="isPrivate" id="isPrivate">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button class="btnA" onclick="postBlog()">Post Blog</button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
     </div>
-
-
-
-
   </div>
-
-  <div class="Blogs container">
+  <div class="Blogs-container container">
 
     <!-- <div class="blog-container">
         <div class="head">
@@ -100,8 +93,15 @@
 
   </div>
 
+ 
+
 
 </body>
+<script type="module">
+  import { authCheck } from "../utils/utils.js"
+  // console.log(authCheck)
+  authCheck()
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script type="module" src="dash.js"></script>

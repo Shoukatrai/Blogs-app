@@ -1,58 +1,46 @@
-import { app, collection, db, doc, getDocs, query, where } from "../firebase.js";
+import { db, getDocs, collection } from "../firebase.js"
 
-//getting elements
-const Blogs  = document.querySelector(".Blogs");
-
-
-
-
-const authCheck = ()=>{
-    const uid = localStorage.getItem("uid")
-    if(!uid){
-        window.location.href = "../login/login.html"
-    }
-}
-
-
-
-const showBlogsHandler = async()=>{
-    console.log("shdshbds")
+const showBlogs = async () => {
     try {
-        const uid = localStorage.getItem("uid")
-        const blogCollection = collection(db , "blogs");
-        const q = query(blogCollection , where("uid" , "==" , uid));
-        const snapsot = await getDocs(q);
-        console.log(snapsot)
-        snapsot.forEach((doc)=>{
-            console.log(doc.data())
-            const UI = `<div class="blog-container">
+        const BlogsContainer = document.querySelector(".Blogs-container")
+        BlogsContainer.innerHTML = "";
+        console.log(BlogsContainer)
+
+        const user = localStorage.getItem("user")
+        const userObj = JSON.parse(user)
+        const uid = userObj.uid
+        console.log(uid)
+
+        const blogs = await getDocs(collection(db, "blogs"));
+        console.log(blogs)
+
+        blogs.forEach((blog) => {
+            if (uid === blog.data().uid) {
+                const renderUi = ` <div class="blog-container">
         <div class="head">
-            <h3> ${doc.data().title} </h3>
+            <h3>${blog.data().inputText}</h3>
+        </div>
         <div class="content">
-            ${doc.data().text}
+            ${blog.data().blogText}
+            ${blog.data().uid}
+            ${blog.data().isPrivate}
         </div>
         <div class="footer">
           <button>edit</button>
           <button>delete</button>
         </div>
-   </div>  `
-       Blogs.innerHTML += UI;
+      </div> `
+                BlogsContainer.innerHTML += renderUi;
+            }
         })
+
+
+
+
+
     } catch (error) {
         console.log(error)
-        alert(error.code)
     }
 }
 
-const logOut = ()=>{
-    let uid = localStorage.getItem("uid")
-    uid = ""
-    localStorage.setItem("uid" , uid)
-    alert("Log out Successful");
-    window.location.href = "../login/login.html"
-}
-
- 
-window.logOut = logOut
-window.showBlogsHandler = showBlogsHandler 
-window.authCheck = authCheck
+window.showBlogs = showBlogs
