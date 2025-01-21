@@ -12,7 +12,43 @@ body{
     border: 1px solid #a8bdb2;
     height: 200px;
 }
+.btnA{
+    border: none;
+    font-size: 18px;
+    background-color: #051937;
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
 
+
+
+.modelA{
+    margin-top: 100px;
+}
+
+.footer{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 10px;
+    gap: 5px;
+
+}
+.footer button{
+    border: none;
+    background-color: transparent;
+    /* justify-self: end; */
+}
+
+
+.footer button:focus{
+    border: 0.1px solid #051937;
+    background-color: whitesmoke;
+    border-radius: 4px;
+}
 .hero textarea:focus{
     border: 1px solid  #214e62;
 }
