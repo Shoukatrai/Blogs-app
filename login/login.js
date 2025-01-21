@@ -1,5 +1,13 @@
 import { auth, db, doc, getDoc, signInWithEmailAndPassword } from "../firebase.js"
 
+const loginCheck = () => {
+    console.log("loginCheck")
+    const user = localStorage.getItem("user")
+    if (user) {
+        window.location.replace("../Dashboard/dash.html")
+    }
+}
+
 const loginHandler = async () => {
     try {
         const email = document.querySelector("#email").value;
@@ -22,4 +30,5 @@ const loginHandler = async () => {
 }
 
 
+window.loginCheck = loginCheck
 window.loginHandler = loginHandler

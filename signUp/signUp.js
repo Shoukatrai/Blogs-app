@@ -1,6 +1,13 @@
 import { auth, createUserWithEmailAndPassword, db, doc, setDoc } from "../firebase.js"
 
 
+const loginCheck = () => {
+    console.log("loginCheck")
+    const user = localStorage.getItem("user")
+    if (user) {
+        window.location.replace("../Dashboard/dash.html")
+    }
+}
 
 
 const signUpHandler = async () => {
@@ -44,4 +51,5 @@ const signUpHandler = async () => {
 
 }
 
+window.loginCheck = loginCheck 
 window.signUpHandler = signUpHandler 
