@@ -77,13 +77,24 @@
       </div>
     </div>
   </div>
+
   <div class="form container">
-    <input type="text" name="" id="editTitle" placeholder="Title">
-    <textarea name="" id="editBlogText"></textarea>
-    <label for="private">Private</label>
-    <input type="checkbox" name="private" id="private">
-    <button onclick="saveEditBlog()">Save Changes</button>
+
+    <div class="input">
+      <input type="text" name="" id="editTitle" placeholder="Title">
+      <textarea name="" id="editBlogText" rows="4" cols="50"></textarea>
+    </div>
+
+    <div class="footer-btns">
+      <div class="private">
+        <label for="private">Private</label>
+        <input type="checkbox" name="private" id="private">
+      </div>
+      <button onclick="saveEditBlog()" class="btnA">Save Changes</button>
+    </div>
+
   </div>
+
   <div class="Blogs-container container">
 
     <!-- <div class="blog-container">
@@ -106,10 +117,10 @@
 
 </body>
 <script type="module">
-  import { authCheck} from "../utils/utils.js"
+  import { authCheck } from "../utils/utils.js"
   // console.log(authCheck)
   authCheck()
-  
+
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
