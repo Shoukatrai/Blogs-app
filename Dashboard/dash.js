@@ -178,6 +178,15 @@ const deleteBlog = async (blogId) => {
     }
 }
 
+
+const logOut = ()=>{
+    console.log("logout")
+    localStorage.removeItem("user")
+    alert("Logout Successful!")
+    window.location.replace("../login/login.html")
+}
+
+window.logOut = logOut
 window.saveEditBlog = saveEditBlog
 window.deleteBlog = deleteBlog
 window.editBlog = editBlog
