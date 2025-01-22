@@ -13,7 +13,6 @@ const loginCheck = () => {
 const signUpHandler = async () => {
     try {
         const email = document.querySelector("#email").value;
-        const pasword = document.querySelector("#pasword").value;
         const firstName = document.querySelector("#firstName").value;
         const lastName = document.querySelector("#lastName").value;
         const phoneNumber = document.querySelector("#phoneNumber").value;
@@ -33,7 +32,6 @@ const signUpHandler = async () => {
             lastName,
             phoneNumber,
             email,
-            pasword,
             uid  
         }
         console.log(userData)

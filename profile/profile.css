@@ -60,10 +60,12 @@ ul li a:focus{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
     margin-top: 50px;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 }
-
+input{
+    width: 100%;
+}
 input:focus{
     outline: 1px solid #214e62;
 }
@@ -74,7 +76,7 @@ label{
 }
 
 input::placeholder{
-    color: #5e8587;
+    color: #051937;
     font-size: 14px;
     opacity: 0.7;
 }
@@ -84,14 +86,13 @@ input::placeholder{
 .input-container {
     position: relative;
     width: 100%;
-    max-width: 400px;
   }
 
   .input-container input {
     width: 100%;
     padding: 10px 40px 10px 10px; /* Leave space for the icon button */
     font-size: 16px;
-    border-radius: 5px;
+    border-radius: 3px;
     border: 1px solid #5e8587;
     margin-bottom: 10px;
     outline: none;
@@ -119,10 +120,17 @@ input::placeholder{
 
 .saveBtn{
     border: none;
-    width: 20%;
-    background-color: #5e8587;
+    width: 15%;
+    background-color: #214e62;
     border-radius: 4px;
+    color: whitesmoke;
+    margin-top: 10px;
+    margin-bottom: 10px;
     display: none;
+}
+
+.saveBtn:hover{
+    background-color: #5e8587;
 }
 h4{
     color: #051937;
@@ -145,19 +153,31 @@ h4{
         flex-direction: column;
         align-self: flex-end;
     }    
+    .hero{
+        width: 95%;
+        margin-top: 20px;
+        padding: 20px;
+    }
+    input{
+        width: 70%;
+    }
 }
 
 
 
-  @media (max-width : 600px){
-    .hero{
-        width: 95%;
-        margin-top: 20px;
-        padding: 10px;
-    }
-    
+  @media (max-width : 600px){    
     input{
         width: 100%;
+    }
+    .saveBtn{
+        border: none;
+        width: 35%;
+        background-color: #214e62;
+        border-radius: 4px;
+        display: none;
+        color: whitesmoke;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
     
 }
