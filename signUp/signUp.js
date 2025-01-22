@@ -28,7 +28,6 @@ const signUpHandler = async () => {
         console.log(newUser)
         const uid = newUser.user.uid
         console.log(uid)
-        localStorage.setItem("uid" , uid)
         const userData ={
             firstName,
             lastName,
@@ -42,11 +41,10 @@ const signUpHandler = async () => {
          
         console.log(newUser)
         alert("Account created successfully!")
-        
-        
         window.location.assign("../login/login.html")
     } catch (error) {
         console.log(error)
+        alert(error.code)
     }
 
 }

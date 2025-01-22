@@ -26,6 +26,7 @@ const loginHandler = async () => {
         window.location.replace("../Dashboard/dash.html")
     } catch (error) {
         console.log(error)
+        alert(error.code)
     }
 }
 

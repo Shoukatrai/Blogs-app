@@ -20,6 +20,7 @@ const postBlog = async () => {
         showBlogs()
     } catch (error) {
         console.log(error)
+        alert(error.code)
     }
 }
 
@@ -81,6 +82,7 @@ const showBlogs = async () => {
 
     } catch (error) {
         console.log(error)
+        alert(error.code)
     }
 }
 
@@ -117,14 +119,9 @@ const editBlog = async (id) => {
             alert("Only author can update the blog!")
         }
        
-
-
-
-        //setting the value to form
-
-
     } catch (error) {
         console.log(error)
+        alert(error.code)
     }
 }
 
@@ -149,6 +146,7 @@ const saveEditBlog = async () => {
         showBlogs()
     } catch (error) {
         console.log(error)
+        alert(error.code)
     }
 }
 
@@ -175,6 +173,7 @@ const deleteBlog = async (blogId) => {
         }
     } catch (error) {
         console.log(error)
+        alert(error.code)
     }
 }
 
