@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Yuji+Mai&display=swap');
 
-body{
+body {
     height: 100%;
     font-family: "PT Serif", serif;
     font-weight: 400;
@@ -16,49 +16,56 @@ body{
     margin-top: 100px;
     border-radius: 10px;
 }
-.hero h1{
+
+.hero h1 {
     font-size: 62px;
     font-weight: bold;
 }
 
-.hero button{
+.hero button {
     font-size: 20px;
     border: none;
     align-self: center;
     padding: 5px 15px 5px 15px;
     border-radius: 5px;
     margin-top: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
-.hero button a{
+.hero button a {
     text-decoration: none;
     color: #051937;
 }
 
-.hero button a:hover{
-    text-decoration: none;
+
+.hero button:hover {
+    background-color: hsl(216, 83%, 12%);
     color: whitesmoke;
 }
-.hero button:hover{
-    background-color: hsl(216, 83%, 12%);
-    color: white;
-}
 
-@media (max-width : 600px){
-    .hero{
-        
-        margin-top: 50px;
+
+@media (max-width : 600px) {
+    .hero {
+        padding: 20px;
+        margin-top: 100px;
         width: 95%;
         padding: 10px;
-    }
-    .hero button{
-        width: 50%;
-    }
-    .hero h1{
-        font-size: 40px;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     }
 
-    .hero p{
-        font-size: 14px;
+    .hero button {
+        width: 100%;
+        margin-bottom: 10px;
+        margin: 20px;
+    }
+
+    .hero h1 {
+        font-size: 50px;
+        margin-bottom: 20px;
+    }
+
+    .hero p {
+        font-size: 20px;
+        margin-bottom: 20px;
     }
 }
