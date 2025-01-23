@@ -16,6 +16,8 @@ const signUpHandler = async () => {
         const firstName = document.querySelector("#firstName").value;
         const lastName = document.querySelector("#lastName").value;
         const phoneNumber = document.querySelector("#phoneNumber").value;
+        const pasword= document.querySelector("#pasword").value;
+        
         console.log(email)
         
         if(!firstName ||!lastName || !PaymentAddress || !email || !pasword){
